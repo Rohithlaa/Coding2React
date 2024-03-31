@@ -9,11 +9,13 @@ export default function App() {
   const searchData = () => {
     console.log("FUnction Called");
     const filteredData1 = populationData.data.filter(
-      (row) => row.Year === searchTerm || row.Population === +searchTerm
+      (row) =>
+        row.Year.includes(searchTerm) ||
+        row.Population.toString().includes(searchTerm),
     );
     console.log(filteredData1);
     setFilteredData(
-      filteredData1 && filteredData1.length > 0 ? filteredData1 : []
+      filteredData1 && filteredData1.length > 0 ? filteredData1 : [],
     );
   };
 
